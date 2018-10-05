@@ -1,0 +1,51 @@
+.my-pagination /deep/ .ngx-pagination .current {
+    background: #0060A9;
+}
+.my-pagination /deep/ .ngx-pagination.responsive {
+    margin-bottom: 0;
+}
+.paginado {
+    background-color: #409ade;
+    color: white;
+}
+.my-pagination{
+    text-align: center;
+    height: 80%
+}
+.encabezado{
+    background: #409ade;
+    color: white;
+    font-size: .9rem;
+    border-right: .5px solid #eae6e6b0;
+    text-align: center;
+    font-weight: bold;
+}
+.cuerpo{
+    color: white
+}
+table {
+    width: 100%;
+}
+.tablaCuerpo {
+    border-right: 1px solid #eaeaea;
+    border-left: 1px solid #409ade;
+    text-align: center;
+}
+.ultimo {
+    padding-right: 0px !important;
+    border-right: 1px solid #409ade;
+}
+.primero {
+    padding-left: 4px !important;
+    padding-right: 4px !important;
+}
+.mat-select-arrow, .mat-select-value {
+    color: white !important;
+}
+.md-table-pagination md-select:not([disabled]):focus .md-select-value {
+    color:white;
+}
+.container-table{
+    border-radius: 10px;
+    overflow: hidden;
+}

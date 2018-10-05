@@ -1,0 +1,67 @@
+<body class="bg-white">
+  <div class="container-fluid">
+    <div class="py-5 text-center">
+      <h2>LISTADO DE PACIENTES</h2>
+    </div>
+    <div class="container">
+      <div class="container-table shadow">
+        <table mat-table [dataSource]="pacientes" class="table-hover">
+          <ng-container matColumnDef="indice">
+            <th class="encabezado primero" mat-header-cell *matHeaderCellDef> # </th>
+            <td class="tablaCuerpo primero" mat-cell *matCellDef="let indice = index"> {{(indice + 1) + ((pageEvent) * pageSize)}} </td>
+          </ng-container>
+          <ng-container matColumnDef="nombre">
+            <th class="encabezado" mat-header-cell *matHeaderCellDef> Nombre </th>
+            <td class="tablaCuerpo" mat-cell *matCellDef="let paciente"> {{paciente.nombre}} </td>
+          </ng-container>
+          <ng-container matColumnDef="apellido">
+            <th class="encabezado" mat-header-cell *matHeaderCellDef> Apellido(s) </th>
+            <td class="tablaCuerpo" mat-cell *matCellDef="let paciente"> {{paciente.apellido}} </td>
+          </ng-container>
+          <ng-container matColumnDef="codigo postal">
+            <th class="encabezado" mat-header-cell *matHeaderCellDef> Código Postal </th>
+            <td class="tablaCuerpo" mat-cell *matCellDef="let paciente"> {{paciente.codigo_postal}} </td>
+          </ng-container>
+          <ng-container matColumnDef="correo">
+            <th class="encabezado" mat-header-cell *matHeaderCellDef> Correo </th>
+            <td class="tablaCuerpo" mat-cell *matCellDef="let paciente"> {{paciente.correo}} </td>
+          </ng-container>
+          <ng-container matColumnDef="direccion">
+            <th class="encabezado" mat-header-cell *matHeaderCellDef> Dirección </th>
+            <td class="tablaCuerpo" mat-cell *matCellDef="let paciente"> {{paciente.direccion}} </td>
+          </ng-container>
+          <ng-container matColumnDef="pais">
+            <th class="encabezado" mat-header-cell *matHeaderCellDef> País </th>
+            <td class="tablaCuerpo" mat-cell *matCellDef="let paciente"> {{paciente.nom_pais}} </td>
+          </ng-container>
+          <ng-container matColumnDef="estado">
+            <th class="encabezado" mat-header-cell *matHeaderCellDef> Estado </th>
+            <td class="tablaCuerpo" mat-cell *matCellDef="let paciente"> {{paciente.nom_estado}} </td>
+          </ng-container>
+          <ng-container matColumnDef="ciudad">
+            <th class="encabezado" mat-header-cell *matHeaderCellDef> Ciudad </th>
+            <td class="tablaCuerpo" mat-cell *matCellDef="let paciente"> {{paciente.nom_ciudad}} </td>
+          </ng-container>
+          <ng-container matColumnDef="opciones">
+            <th class="encabezado ultimo" mat-header-cell *matHeaderCellDef> Opciones </th>
+            <td class="tablaCuerpo ultimo" mat-cell *matCellDef="let paciente">
+              <mat-icon [ngStyle]="{'cursor': 'pointer'}" (click)="editarPaciente(paciente.idu_paciente)" title="Editar">edit</mat-icon>
+              <mat-icon [ngStyle]="{'cursor': 'pointer'}" title="Eliminar">delete</mat-icon>
+            </td>
+          </ng-container>
+        
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        <mat-paginator 
+          #paginator
+          class="paginado"
+          [length]="length"
+          [pageSize]="pageSize"
+          [pageSizeOptions]="pageSizeOptions"
+          (page)="pageEvent = $event.pageIndex">
+        </mat-paginator>
+      </div> 
+    </div>
+  </div>
+</body>
